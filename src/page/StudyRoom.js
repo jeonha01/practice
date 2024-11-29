@@ -4,8 +4,7 @@ import { HrvChart } from "../components/ui/hrvchart";
 
 const StudyRoom = () => {
   return (
-    <div > 
-      공부방화면
+    <div> 
       <HrvChart />
     </div>
   );
