@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "target": "ES2017",
+      "lib": ["DOM", "ES2017", "DOM.Iterable"],
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "baseUrl": "src",
+      "paths": {
+        "@/*": ["./*"]
+      }
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"], // 프로젝트 소스 파일 포함
+    "exclude": ["node_modules"] // 불필요한 파일 제외
+  }
+  
