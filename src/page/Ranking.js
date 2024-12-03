@@ -123,3 +123,4 @@ const Score = styled.span`
     font-size: 0.9rem;
   }
 `;
+

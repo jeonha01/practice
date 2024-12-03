@@ -226,7 +226,7 @@ const Scheduler = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/subjects", formData);
+      const response = await axios.post("/study/subjects", formData);
       setMessage(response.data.message);
     } catch (error) {
       if (error.response) {
