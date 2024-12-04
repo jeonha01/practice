@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // Styled Components
 const Container = styled.div`
-  max-width: 400px;
-  height: 100vh;
+  height: 100vh; /* 화면 전체 높이 */
   margin: 0 auto;
   padding: 2rem 2rem; /* 상단 패딩을 늘려 전체 여유 공간 추가 */
   font-family: Arial, sans-serif;
@@ -15,7 +14,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start; /* 상단 정렬로 변경 */
   gap: 1.5rem; /* 요소 간의 간격 추가 */
+  background: linear-gradient(to bottom, #000000, #333333);
+  overflow-y: auto; /* 세로 스크롤 활성화 */
 `;
+
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -36,6 +38,7 @@ const DateSection = styled.div`
   transform: translateX(-50%); /* 가로 방향 정확한 중앙 정렬 */
   text-align: center;
   width: 100%; /* 날짜와 Divider가 같은 너비를 공유 */
+  color:white;
 `;
 
 const Divider = styled.div`
@@ -57,15 +60,18 @@ const Header = styled.div`
   font-size: 1rem;
   border-bottom: 2px solid #ccc;
   padding-bottom: 0.5rem;
+  color:white;
 `;
 
 const TodoItem = styled.div`
   display: flex;
   justify-content: space-between;
   height: 50px;
+  border-radius:5px;
   align-items: center;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #ccc;
+  background-color: white;
   width: 100%;
   &:last-child {
     border-bottom: none;
@@ -101,8 +107,8 @@ const Checkbox = styled.input`
 const TodoText = styled.p`
   margin: 0;
   font-size: 1rem;
-  position: absolute;
-  left:6rem;
+  // position: absolute;
+  // left:6rem;
 `;
 
 const TodoScore = styled.p`
@@ -115,16 +121,17 @@ const AddButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight:bold;
   padding: 0.75rem;
-  background-color: #000;
-  color: #fff;
+  background-color: white;
+  color: black;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
 
   &:hover {
-    background-color: #000000;
+    background-color: white;
   }
 `;
 
@@ -180,7 +187,7 @@ const TotalStudyTime = styled.div`
   font-size: 1rem;
   font-weight: bold;
   margin-top: 1rem; /* 날짜 아래 간격 */
-  color: #333;
+  color: white;
   text-align: center;
   width: 100%;
 `;
@@ -193,15 +200,16 @@ const Message = styled.p`
 
 const DeleteModeButton = styled.button`
   padding: 0.75rem;
-  background-color: ${props => (props.isDeleteMode ? "#000000" : "#000")};
-  color: #fff;
+  background-color: ${props => (props.isDeleteMode ? "white" : "white")};
+  color: black;
   border: none;
   border-radius: 5px;
+  font-weight:bold;
   font-size: 1rem;
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => (props.isDeleteMode ? "#000000" : "#000")};
+    background-color: ${props => (props.isDeleteMode ? "white" : "white")};
   }
 `;
 
@@ -320,13 +328,14 @@ const Scheduler = () => {
         <TodoItem key={todo.id}>
           <TodoLeft>
             {isDeleteMode ? (
-              <DeleteButton type="" onClick={() => handleDelete(todo.id)}>×</DeleteButton>
+              <DeleteButton type=""  onClick={() => handleDelete(todo.id)}>×</DeleteButton>
             ) : (
               <Checkbox
                 type="checkbox"
                 checked={!!checkedItems[todo.id]} // 체크 상태 유지
                 onChange={() => handleCheckboxChange(todo.id)}
                 hidden={isDeleteMode} // 삭제 모드일 때 숨김 처리
+                
               />
             )}
             <TodoText onClick={() => handleSubjectClick(todo.id)}>{todo.text}</TodoText>

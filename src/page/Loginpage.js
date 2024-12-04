@@ -13,7 +13,6 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-
 const Card = styled.div`
   background: white;
   padding: 2rem;
@@ -47,14 +46,14 @@ const Input = styled.input`
   font-size: 1rem;
 
   &:focus {
-    border-color: #007bff;
+    border-color: #000000;
     outline: none;
     box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
   }
 `;
 
 const Button = styled.button`
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
   border: none;
   padding: 0.75rem;
@@ -64,7 +63,7 @@ const Button = styled.button`
   font-size: 1rem;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #000000;
   }
 `;
 
@@ -74,14 +73,16 @@ const Footer = styled.div`
 `;
 
 const Link = styled.a`
-  color: #007bff;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: #000000;
+  text-decoration: underline;
 `;
 
+const Logo = styled.img`
+  display: block; /* 가운데 정렬 */
+  margin: 0 auto 1.5rem; /* 위, 아래 간격 설정 (중앙 정렬 포함) */
+  width: 62x; /* 너비 */
+  height: 58px; /* 높이 */
+`;
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -106,7 +107,8 @@ const Login = () => {
   return (
     <Container>
       <Card>
-        <Title>Login</Title>
+      <Logo src="/logo.png" alt="Logo" />
+        {/* <Title>Login</Title> */}
         <Form onSubmit={handleSubmit}>
           <Label>Email</Label>
           <Input
